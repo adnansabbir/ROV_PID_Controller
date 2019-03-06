@@ -21,6 +21,8 @@ def mapFromTo(x, a, b, c, d):
 targetAlt = 100
 currentAlt = 0
 data = [0.0, 0.0]
+motorMax = 1800
+motorMin = 1200
 
 P = 2
 I = 0.01
@@ -39,7 +41,7 @@ while 1:
     pid.update(currentAlt)
     output = pid.output
     # m=interp(output,[-100,100],[1100,1900])  #this uses numpy library
-    throttle = mapFromTo(output, -100, 100, 1200, 1800)  # custom method
+    throttle = mapFromTo(output, -100, 100, motorMin, motorMax)  # custom method
 
     print("Target: %.1f cm | Current: %.1f cm | PPM: %s " % (targetAlt, currentAlt, throttle) + "raw_PID:" + str(output))
 
