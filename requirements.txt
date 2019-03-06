@@ -1,0 +1,4 @@
+dronekit==2.9.1
+future==0.15.2
+monotonic==1.2
+pymavlink==2.0.6
