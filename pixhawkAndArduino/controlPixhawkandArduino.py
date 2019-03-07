@@ -23,7 +23,7 @@ print("Going to Stablize Mode in 3 sec")
 time.sleep(3)
 
 # Set to STABILIZE mode
-# pixhawk.change_mode(auv, 'STABILIZE')
+pixhawk.change_mode(auv, 'STABILIZE')
 
 print("Started depth sensing and throttle count")
 # Start depth sensing and throttle calculation

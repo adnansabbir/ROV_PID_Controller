@@ -44,21 +44,21 @@ class arduinoGetData:
                 pass
 
     def motor_speed(self):
-        self.pid.update(self.pressure)
-        self.pixhawk_speed = np.interp(self.pid.output, [-100, 100], [self.max_reverse_speed, self.max_forward_speed])
+        # self.pid.update(self.pressure)
+        # self.pixhawk_speed = np.interp(self.pid.output, [-100, 100], [self.max_reverse_speed, self.max_forward_speed])
 
-        # pressure_difference = self.target_pressure - self.pressure
-        # print(self.pixhawk_speed, pressure_difference, self.target_pressure, self.pressure)
-        # self.pixhawk_speed -= pressure_difference
-        # # self.pixhawk_speed = int(self.pixhawk_speed)
-        #
-        # if self.pixhawk_speed > self.max_forward_speed:
-        #     self.pixhawk_speed = self.max_forward_speed
-        # elif self.pixhawk_speed<self.max_reverse_speed:
-        #     self.pixhawk_speed = self.max_reverse_speed
-        #
-        # if abs(pressure_difference) < .5:
-        #     self.pixhawk_speed = self.stop_speed
+        pressure_difference = self.target_pressure - self.pressure
+        print(self.pixhawk_speed, pressure_difference, self.target_pressure, self.pressure)
+        self.pixhawk_speed -= pressure_difference
+        self.pixhawk_speed = int(self.pixhawk_speed)
+
+        if self.pixhawk_speed > self.max_forward_speed:
+            self.pixhawk_speed = self.max_forward_speed
+        elif self.pixhawk_speed<self.max_reverse_speed:
+            self.pixhawk_speed = self.max_reverse_speed
+
+        if abs(pressure_difference) < .5:
+            self.pixhawk_speed = self.stop_speed
 
     def stop(self):
         self.run = False
