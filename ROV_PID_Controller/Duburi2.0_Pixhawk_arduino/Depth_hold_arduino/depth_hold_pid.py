@@ -1,4 +1,4 @@
-import PID
+from .PID import PID
 import time
 import serial
 

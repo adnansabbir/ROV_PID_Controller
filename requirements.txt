@@ -1,4 +1,10 @@
-dronekit==2.9.1
-future==0.15.2
+future==0.17.1
+iso8601==0.1.12
+lxml==4.3.2
 monotonic==1.2
-pymavlink==2.0.6
+numpy==1.16.2
+pid==2.2.3
+pymavlink==2.3.4
+pyserial==3.4
+PyYAML==3.13
+serial==0.0.97
